@@ -1,0 +1,57 @@
+type GhafMarketPlaceDetail @entity {
+    id: ID! # Zero
+    totalNftItem: BigInt!
+    totalBidItem: BigInt!
+}
+
+type Nft @entity {
+    id: ID! # nft address
+    nftContractAddress: String! # address
+    tokenId: String!
+    seller: User!
+    buyer: User
+    buyType: String! 
+    hasAccepted: Boolean!
+    isListed: Boolean!
+    isSold: Boolean!
+    fee: BigInt!
+    bids: [Bid!]! @derivedFrom(field: "nft")
+    offers: [Offer!]! @derivedFrom(field: "nft")
+    acceptedBid: Bid
+    timeStamp: BigInt!
+    transactionHash: String!
+    payAmount: BigInt
+    paymentToken: String
+}
+type Bid @entity {
+    id: ID! 
+    seller: User!
+    bidder: User!
+    isRevoked: Boolean!
+    isCanceled: Boolean!
+    isUsed: Boolean!
+    isAccepted: Boolean!
+    bidAmount: BigInt!
+    nft: Nft!
+    paymentToken: String!
+    timeStamp: BigInt!
+    transactionHash: String!
+    bidAmountsHistory: [BigInt!]!
+}
+type Offer @entity {
+    id: ID! 
+    buyer: User
+    seller: User
+    nft: Nft!
+    payAmount: BigInt
+    paymentToken: String
+    buyType: String! 
+    timeStamp: BigInt!
+    transactionHash: String!
+}
+
+type User @entity {
+    id: ID! # address
+    nfts: [Nft!]! @derivedFrom(field: "seller")
+    bids: [Bid!]! @derivedFrom(field: "bidder")
+}

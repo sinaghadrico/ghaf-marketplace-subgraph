@@ -1,0 +1,23 @@
+{
+  "name": "ghaf-marketplace-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "npm run codegen:test",
+    "codegen:test": "cat subgraph-test.yaml > subgraph.yaml && graph codegen",
+    "codegen:main": "cat subgraph-main.yaml > subgraph.yaml && graph codegen",
+    "build": "npm run build:test",
+    "build:test": "cat subgraph-test.yaml > subgraph.yaml && graph build",
+		"build:main": "cat subgraph-main.yaml > subgraph.yaml && graph build",
+    "deploy": "npm run deploy:test",
+    "deploy:test": "cat subgraph-test.yaml > subgraph.yaml && graph deploy --product hosted-service sinaghadrico/ghaf-marketplace-testnet",
+    "deploy:main": "cat subgraph-main.yaml > subgraph.yaml && graph deploy --product hosted-service sinaghadrico/ghaf-marketplace-mainnet",
+    "test": "graph test",
+    "auth":"graph auth --product hosted-service 669b40d7718bcc94081175dc3d658e82",
+    "auth-me":"graph auth --product hosted-service e96d4f0edcd54f2cb573e971b7776e9d",
+    "h": "graph -help"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.31.0",
+    "@graphprotocol/graph-ts": "0.27.0"
+  }
+}
