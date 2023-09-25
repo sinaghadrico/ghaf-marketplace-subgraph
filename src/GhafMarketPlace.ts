@@ -219,6 +219,10 @@ export function handleNftListed(event: NftListedEvent): void {
     nft.timeStamp = event.block.timestamp;
     nft.transactionHash = event.transaction.hash.toHexString();
     nft.buyType = event.params.buyType.toString();
+    nft.deadline = event.params.deadline;
+    nft.initialAmount = event.params.initialAmount;
+    nft.initialPaymentToken = event.params.initialPaymentToken.toHexString();
+    
     nft.save();
 }
 
@@ -231,17 +235,23 @@ export function handleNftSold(event: NftSoldEvent): void {
         ]);
         return;
     }
+    
+   
 
     nft.isSold = true;
+    nft.hasAccepted = false;
+    nft.fee = ZERO_BI;
     nft.isListed = false;
-    nft.fee = event.params.fee;
-    nft.buyer = event.params.buyer.toString();
-    nft.fee = event.params.fee;
-    nft.payAmount = event.params.payAmount;
-    nft.paymentToken = event.params.paymentToken.toHexString();
-    nft.buyType = event.params.buyType.toString();
-    nft.timeStamp = event.block.timestamp;
-    nft.transactionHash = event.transaction.hash.toHexString();
+    nft.seller = "";
+    nft.buyer = "";
+    nft.nftContractAddress = "";
+    nft.tokenId =  "";
+    nft.timeStamp = ZERO_BI;
+    nft.transactionHash = "";
+    nft.buyType = "0";
+    nft.deadline = ZERO_BI;
+    nft.initialAmount = ZERO_BI;
+    nft.initialPaymentToken = "";
 
     nft.save();
 

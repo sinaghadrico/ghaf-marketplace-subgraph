@@ -20,8 +20,9 @@ type Nft @entity {
     acceptedBid: Bid
     timeStamp: BigInt!
     transactionHash: String!
-    payAmount: BigInt
-    paymentToken: String
+    initialAmount: BigInt
+    initialPaymentToken: String,
+    deadline: BigInt!
 }
 type Bid @entity {
     id: ID! 

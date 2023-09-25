@@ -266,6 +266,24 @@
           "internalType": "enum GhafMarketPlaceLib.BuyTypes",
           "name": "buyType",
           "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "initialAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "initialPaymentToken",
+          "type": "address"
         }
       ],
       "name": "NftListed",
@@ -448,7 +466,7 @@
       "outputs": [
         {
           "internalType": "address",
-          "name": "buyerAddress",
+          "name": "buyer",
           "type": "address"
         },
         {
@@ -625,6 +643,21 @@
           "internalType": "enum GhafMarketPlaceLib.BuyTypes",
           "name": "_buyType",
           "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_auctionDuration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_initialAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_initialPaymentToken",
+          "type": "address"
         }
       ],
       "name": "listNft",
@@ -674,9 +707,24 @@
           "type": "bool"
         },
         {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
           "internalType": "enum GhafMarketPlaceLib.BuyTypes",
           "name": "buyType",
           "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "initialAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "initialPaymentToken",
+          "type": "address"
         }
       ],
       "stateMutability": "view",
